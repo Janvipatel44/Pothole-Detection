@@ -1,0 +1,17 @@
+import os
+from PIL import Image
+
+directory = './dataset/potholes/'
+directory_new = './dataset/potholes_resized/'
+for filename in os.listdir(directory):
+    if filename.endswith(".jpg"):
+        print(directory + filename)
+        print('file found')
+        image = Image.open(directory + filename).convert('RGB')
+        print(image.format)
+        print(image.mode)
+        new_image = image.resize((200, 200))
+        new_image.save(directory_new + filename)
+        continue
+    else:
+        continue
